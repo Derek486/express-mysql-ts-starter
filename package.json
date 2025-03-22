@@ -1,9 +1,6 @@
 {
   "name": "express-ts-starter",
   "version": "1.0.0",
-  "bin": {
-    "express-ts-starter": "dist/index.js"
-  },
   "scripts": {
     "start": "tsc && ts-node -r tsconfig-paths/register dist/index.js",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts",

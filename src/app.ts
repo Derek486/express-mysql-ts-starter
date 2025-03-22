@@ -1,6 +1,7 @@
 import express, { Response } from 'express'
 import { APP_CORS, APP_HOST, APP_PORT } from './config'
 import helmet from 'helmet'
+import cors from 'cors'
 
 const app = express()
 
@@ -9,6 +10,13 @@ app.set('HOST', APP_HOST)
 app.set('CORS_ORIGIN', APP_CORS)
 
 app.use(express.json())
+
+if (app.get('CORS_ORIGIN')) {
+  app.use(cors({
+    origin: app.get('CORS_ORIGIN')
+  }))
+}
+
 app.use(helmet())
 
 app.disable('x-powered-by')
@@ -16,6 +24,10 @@ app.disable('x-powered-by')
 /**
  * Routers here
  */
+
+app.get('/', (_, res) => {
+  return res.json({ response: "Hello world" })
+})
 
 app.use((_, res, __) => {
   res.status(404).json({ message: 'Resource not found' });
