@@ -1,10 +1,12 @@
 {
   "name": "express-ts-starter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "start": "tsc && ts-node -r tsconfig-paths/register dist/index.js",
+    "migrate": "ts-node-dev -r tsconfig-paths/register ./src/migrate.ts",
+    "migrate:test": "cross-env NODE_ENV=test ts-node-dev -r tsconfig-paths/register ./src/migrate.ts",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest --runInBand"
   },
   "keywords": [],
   "author": "",
@@ -21,11 +23,18 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/bcrypt": "^5.0.2",
+    "@types/jest": "^29.5.14",
     "@types/cors": "^2.8.17",
     "@types/express": "4.17.21",
     "@types/jsonwebtoken": "^9.0.7",
+    "@types/supertest": "^6.0.3",
     "@types/node": "20.14.7",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.2",
     "ts-node-dev": "2.0.0",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.5.2"

@@ -17,4 +17,13 @@ export abstract class Mapper<I, O> {
    * @returns Transformed object of type `O`.
    */
   abstract mapFrom(param: I): O;
+
+  /**
+   * Abstract method that must be implemented by any class extending `Mapper`.
+   * Converts an object of type `O`to type `I`.
+   *
+   * @param param Input object to transform.
+   * @returns Transformed object of type `I`.
+   */
+  abstract mapTo(param: O): I;
 }

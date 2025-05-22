@@ -1,12 +1,9 @@
 import app from "./app";
-import connection from "@persistence/connection";
-import "@persistence/relations";
+import { connection } from "@persistence/connection";
 
 async function main() {
   try {
     await connection.authenticate();
-
-    await connection.sync(); // Synchronize database with models (tables)
 
     console.log('Database connection successful');
 
